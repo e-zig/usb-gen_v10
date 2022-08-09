@@ -110,6 +110,7 @@ void comProc(char *buf, DevStausStructType &devStatus) {
       lcdWrite(1, (char*) ("Prepare Reset"));
       lcdWrite(2, (char*) ("for next set F"));
       pllReset();
+      msg = okMsg;
       /*      if (SetF(devStatus))
        msg = okMsg;
        lcdprintf(2, "%.6f MHz\n", devStatus.Fgen / 1000000.0); */
@@ -119,6 +120,13 @@ void comProc(char *buf, DevStausStructType &devStatus) {
       lcdWrite(1, (char*) ("ReInit PLL regs"));
       lcdWrite(2, (char*) ("for next set F"));
       pllRegsReset();
+      msg = okMsg;
+      break;
+    }
+    case 'D': {
+      uint32_t g = atol((const char*) &buf[1]);
+      msg = okMsg;
+      lcdOnOff(uint8_t(g > 0));
       break;
     }
     case 'G': {

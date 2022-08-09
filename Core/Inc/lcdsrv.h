@@ -14,5 +14,6 @@ void lcdWrite(char *str);
 int lcdprintf(uint32_t line, const char *str, ...);
 void lcdClear();
 void lcdUpdate();
+void lcdOnOff(const uint8_t on);
 
 #endif /* INC_LCDSRV_H_ */

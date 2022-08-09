@@ -9,6 +9,10 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+void lcdOnOff(const uint8_t on) {
+  ssd1306_SetDisplayOn(on);
+}
+
 void lcdWrite(uint32_t line, char *str) {
   ssd1306_SetCursor(2, (line - 1) * 11);
   ssd1306_WriteString(str, Font_7x10, White);
